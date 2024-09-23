@@ -28,6 +28,11 @@ const MessageHistory = () => {
     }
   }, [messages]);
 
+   // Ensure `messages` is an array before calling map
+   if (!messages || !Array.isArray(messages)) {
+    return <div>No messages available</div>;
+  }
+
   return (
     <Paper
       ref={messageListRef}

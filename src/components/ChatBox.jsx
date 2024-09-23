@@ -38,35 +38,13 @@ const ChatBox = () => {
     const newMessage = { sender: localStorage.getItem('username'), text: message };
     dispatch(sendMessageAction(newMessage));
     broadcast.postMessage(newMessage);
-    setMessage('');
+    setMessage(''); //Clear input after sending
   };
+
+   
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '80vh' }}>
-      {/* Message List */}
-      <Paper 
-        sx={{ 
-          flex: 1, 
-          overflowY: 'auto', 
-          marginBottom: 2, 
-          padding: 2, 
-          backgroundColor: '#f9f9f9',
-          borderRadius: '8px'
-        }}
-        ref={messageListRef}
-        onScroll={handleScroll}
-      >
-        <List>
-          {messages.map((msg, index) => (
-            <ListItem key={index} sx={{ paddingLeft: 0, paddingRight: 0 }}>
-              <Typography variant="body1" sx={{ wordBreak: 'break-word' }}>
-                <strong>{msg.sender}</strong>: {msg.text}
-              </Typography>
-            </ListItem>
-          ))}
-        </List>
-      </Paper>
-
       {/* Input Field */}
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <TextField

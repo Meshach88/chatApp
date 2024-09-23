@@ -1,7 +1,7 @@
 // Action to add a new message
-export const addMessageAction = (message) => {
+export const sendMessageAction = (message) => {
     return {
-      type: 'ADD_MESSAGE',
+      type: 'SEND_MESSAGE',
       payload: message,
     };
   };

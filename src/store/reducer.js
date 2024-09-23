@@ -5,7 +5,7 @@ const initialState = {
   
   const chatReducer = (state = initialState, action) => {
     switch (action.type) {
-      case 'ADD_MESSAGE':
+      case 'SEND_MESSAGE':
         return {
           ...state,
           messages: [...state.messages, action.payload], // Append new message to the messages array
