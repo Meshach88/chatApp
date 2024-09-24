@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { List, ListItem, Typography, CircularProgress, Box, Paper } from '@mui/material';
+import { List, Typography, CircularProgress, Box, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadMoreMessagesAction } from '../store/actions';
 import Message from './Message';
 
 const MessageHistory = () => {
   const dispatch = useDispatch();
-  const messages = useSelector((state) => state.messages);
+  const messages = useSelector((state) => state.chat.messages);
   const [loadingMore, setLoadingMore] = useState(false);
   const messageListRef = useRef(null);
-  const currentUser = localStorage.getItem('username');
+  const currentUser = sessionStorage.getItem('username');
 
   // Handle scrolling to load more messages
   const handleScroll = (e) => {
@@ -23,16 +23,13 @@ const MessageHistory = () => {
   };
 
   useEffect(() => {
+    // Scroll to the bottom when new messages are added
     if (messageListRef.current) {
       messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
     }
   }, [messages]);
 
-   // Ensure `messages` is an array before calling map
-   if (!messages || !Array.isArray(messages)) {
-    return <div>No messages available</div>;
-  }
-
+  
   return (
     <Paper
       ref={messageListRef}

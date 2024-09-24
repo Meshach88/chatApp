@@ -1,13 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, TextField, Box, Typography } from '@mui/material';
 
-const UserNamePrompt = ({ setUserName }) => {
-  const [name, setName] = useState('');
+const UserNamePrompt = ({ onSubmitUsername }) => {
+  const [username, setUsername] = useState('');
+  // const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = () => {
-    if (name.trim()) {
-      localStorage.setItem('username', name);  // Store username in local storage
-      setUserName(name);  // Set username state in the parent component (App)
+  // Check if username is already set in local storage
+
+  useEffect(() => {
+    const storedUsername = sessionStorage.getItem('username');
+    if (storedUsername) {
+      // setSubmitted(true)
+      setUsername(storedUsername); // Set the existing username
+      onSubmitUsername(storedUsername); //Pass it back to parent
+    }
+  },[onSubmitUsername])
+
+
+  // Handle submission of username
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username.trim()) {
+      sessionStorage.setItem('username', username);  // Store username in local storage
+      // setSubmitted(true); //Mark it as submitted
+      onSubmitUsername(username);  // Set username state in the parent component (App)
     }
   };
 
@@ -32,8 +48,8 @@ const UserNamePrompt = ({ setUserName }) => {
       <TextField
         label="Name"
         variant="outlined"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
         sx={{ marginBottom: 2, width: '100%', maxWidth: '400px' }}
       />
       

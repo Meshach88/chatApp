@@ -2,21 +2,22 @@ import { useState } from 'react';
 import { Container, Box, Paper } from '@mui/material';
 import ChatBox from './components/ChatBox';
 import UserNamePrompt from './components/UserNamePrompt';
-import MessageHistory from './components/MessageHistory';
 
 const App = () => {
-  const [userName, setUserName] = useState(localStorage.getItem('username'));
+  const [username, setUsername] = useState('');
+  const handleUsernameSubmit = (submittedUsername) => {
+    setUsername(submittedUsername); //Set the username in state once submitted
+  };
 
   return (
     <Container maxWidth="sm" sx={{ paddingTop: 4 }}>
       <Paper elevation={3} sx={{ padding: 4 }}>
-        {userName ? (
+        {username ? (
           <Box>
-            <MessageHistory/>
-            <ChatBox />
+            <ChatBox username = {username} />
           </Box>
         ) : (
-          <UserNamePrompt setUserName={setUserName} />
+          <UserNamePrompt onSubmitUsername={handleUsernameSubmit} />
         )}
       </Paper>
     </Container>

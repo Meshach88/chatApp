@@ -1,5 +1,5 @@
 const initialState = {
-    messages: [], // Array to hold chat messages
+    messages: ['help'], // Array to hold chat messages
     loading: false, // Loading state for fetching messages
   };
   
