@@ -53,7 +53,7 @@ To run this project locally, ensure that you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/chat-app.git
+   git clone https://github.com/Meshach88/chat-app.git
    cd chat-app
 2. **Install dependencies:**
     npm install
