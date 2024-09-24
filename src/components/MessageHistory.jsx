@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { List, Typography, CircularProgress, Box, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadMoreMessagesAction } from '../store/actions';
+import { loadMoreMessagesAction } from '../redux/actions';
 import Message from './Message';
 
 const MessageHistory = () => {

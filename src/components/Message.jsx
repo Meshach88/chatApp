@@ -13,7 +13,7 @@ const Message = ({ sender, text, isOwnMessage }) => {
     >
       <Box
         sx={{
-          backgroundColor: isOwnMessage ? '#e1ffc7' : '#f1f1f1',
+          backgroundColor: isOwnMessage ? '#c7e1ff' : '#f1f1f1',
           color: isOwnMessage ? '#000' : '#000',
           borderRadius: '8px',
           padding: '8px 12px',

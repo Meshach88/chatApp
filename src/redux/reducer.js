@@ -1,6 +1,6 @@
 const initialState = {
-    messages: ['help'], // Array to hold chat messages
-    loading: false, // Loading state for fetching messages
+    messages: [], // Array to hold chat messages
+    // loading: false, // Loading state for fetching messages
   };
   
   const chatReducer = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const initialState = {
         return {
           ...state,
           messages: [...action.payload, ...state.messages], // Prepend loaded messages to the existing messages array
-        };
+        }; 
   
       case 'SET_LOADING':
         return {

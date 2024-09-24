@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, Button, Box } from "@mui/material";
-import { sendMessageAction, loadMoreMessagesAction } from "../store/actions";
+import { sendMessageAction, loadMoreMessagesAction } from "../redux/actions";
 import MessageHistory from "./MessageHistory";
 
 const ChatBox = ({ username }) => {
