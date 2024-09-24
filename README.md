@@ -59,4 +59,4 @@ To run this project locally, ensure that you have the following installed:
     npm install
 3. **Run the application in development mode:**
     npm run dev
-4. **Open http://localhost:3000 in your browser to view the app.**
+4. **Open http://localhost:5173 in your browser to view the app.**
